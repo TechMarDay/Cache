@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <h2>GetOrCreate: @ViewData["timeCacheGetOrCreate"] </h2>
+
+    @if (!string.IsNullOrWhiteSpace(@ViewData["expiredCache"]?.ToString()))
+    {
+        <h2>MemoryCacheEntryOption: @ViewData["expiredCache"]</h2>
+    }
+
+
+    <h2>@ViewData["callbackMessage"]</h2>
+
+    <h1>Cache dependences</h1>
+    <h2>Parent cache: @ViewData["parentKey"]</h2>
+    <h2>Child 1 cache: @ViewData["ChildKey1"]</h2>
+    <h2>Child 2 cache: @ViewData["ChildKey2"]</h2>
+
+    <form asp-page-handler="RemoveDependencesCache">
+        <div class="control-group form-group">
+            <input type="submit" class="btn btn-success" value="Remove dependence cache" />
+        </div>
+    </form>
+</div>

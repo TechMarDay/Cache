@@ -1,0 +1,16 @@
+﻿@page
+@model MemoryCache.Pages.DemoCacheModel
+@{
+}
+
+
+<h1>TimeCache: @Model.TimeCache</h1>
+
+
+<h1>List user cache</h1>
+@foreach(var user in Model.Users)
+{
+    <ul>
+        <li>@user.Name</li>
+    </ul>
+}
